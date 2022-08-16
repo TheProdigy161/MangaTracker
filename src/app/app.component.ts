@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UuidGenerator } from 'src/services/uuid-generator';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,6 @@ import { UuidGenerator } from 'src/services/uuid-generator';
 export class AppComponent {
   title = 'portal';
 
-  deviceUuid: string = '';
-
   constructor() {
-    this.deviceUuid = UuidGenerator.getDeviceId();
   }
 }

@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { UuidGenerator } from 'src/services/uuid-generator';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
+  title = 'portal';
 
-  constructor() { }
+  deviceUuid: string = '';
+  mangas: string[] = [
+    "JJK",
+    "OPM",
+    "Naruto"
+  ]
 
-  ngOnInit(): void {
+  constructor() {
+    this.deviceUuid = UuidGenerator.getDeviceId();
   }
-
 }
