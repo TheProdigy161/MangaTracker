@@ -4,8 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { ScannerComponent } from './scanner/scanner.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'scanner', component: ScannerComponent }
+  { path: 'scanner', component: ScannerComponent },
+  { path: '**', component: HomeComponent },
 ];
 
 @NgModule({

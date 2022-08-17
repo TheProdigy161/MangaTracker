@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BarcodeService } from 'src/services/barcode.service';
 import { UuidGenerator } from 'src/services/uuid-generator';
 
 @Component({
@@ -10,13 +11,15 @@ export class HomeComponent {
   title = 'portal';
 
   deviceUuid: string = '';
-  mangas: string[] = [
-    "JJK",
-    "OPM",
-    "Naruto"
-  ]
+  mangas: string[] = [];
 
-  constructor() {
+  constructor(public barcodeService: BarcodeService) {
     this.deviceUuid = UuidGenerator.getDeviceId();
+
+    this.barcodeService.barcodes.subscribe(barcodes => {
+      this.mangas = barcodes;
+    });
+
+    this.barcodeService.setupBarcodes();
   }
 }

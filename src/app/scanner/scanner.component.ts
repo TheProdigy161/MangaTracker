@@ -1,5 +1,8 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import Quagga from '@ericblade/quagga2';
+import { BarcodeService } from 'src/services/barcode.service';
 
 @Component({
   selector: 'app-scanner',
@@ -7,12 +10,13 @@ import Quagga from '@ericblade/quagga2';
   styleUrls: ['./scanner.component.scss']
 })
 export class ScannerComponent implements AfterViewInit {
+  barcodeDetected: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router, private barcodeService: BarcodeService, private snack: MatSnackBar) { }
 
   ngAfterViewInit(): void {
     if (!navigator.mediaDevices || !(typeof navigator.mediaDevices.getUserMedia === 'function')) {
-      console.log('getUserMedia is not supported');
+      this.snack.open('getUserMedia is not supported');
       return;
     }
 
@@ -21,7 +25,6 @@ export class ScannerComponent implements AfterViewInit {
           constraints: {
             facingMode: 'environment'
           },
-          size: 1,
           area: { // defines rectangle of the detection/localization area
             top: '0%',    // top offset
             right: '0%',  // right offset
@@ -35,14 +38,23 @@ export class ScannerComponent implements AfterViewInit {
       },
       (err) => {
         if (err) {
-          console.log(`QuaggaJS could not be initialized, err: ${err}`);
+          this.snack.open(`QuaggaJS could not be initialized, err: ${err}`);
         } else {
           Quagga.start();
           Quagga.onDetected((res) => {
-            // this.onBarcodeScanned(res.codeResult.code);
+            if (!this.barcodeDetected)
+              this.onBarcodeScanned(res.codeResult.code);
           });
         }
       });
   }
 
+  onBarcodeScanned(code: string | null): void {
+    if (code) {
+      this.barcodeDetected = true;
+      this.snack.open(code);
+      this.barcodeService.addBarcode(code);
+      this.router.navigateByUrl('');
+    }
+  } 
 }

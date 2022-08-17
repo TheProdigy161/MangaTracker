@@ -6,4 +6,5 @@
     <mat-list-item *ngFor="let manga of mangas">{{manga}}</mat-list-item>
 </mat-list>
 
-<input type="file" accept="image/*" capture="environment">
+<button mat-raised-button routerLink="scanner">Scanner</button>
+<button mat-raised-button (click)="barcodeService.clearBarcodes()">Clear</button>
