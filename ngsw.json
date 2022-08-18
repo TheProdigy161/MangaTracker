@@ -1,0 +1,81 @@
+{
+  "configVersion": 1,
+  "timestamp": 1660818822281,
+  "index": "/mangatracker/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/mangatracker/favicon.ico",
+        "/mangatracker/index.html",
+        "/mangatracker/main.f7c7761f514fdcf1.js",
+        "/mangatracker/manifest.webmanifest",
+        "/mangatracker/polyfills.50a6546cc107d1e4.js",
+        "/mangatracker/runtime.99fbb0d76d87122b.js",
+        "/mangatracker/styles.dab3a5f2260a7f6c.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/mangatracker/assets/icons/icon-128x128.png",
+        "/mangatracker/assets/icons/icon-144x144.png",
+        "/mangatracker/assets/icons/icon-152x152.png",
+        "/mangatracker/assets/icons/icon-192x192.png",
+        "/mangatracker/assets/icons/icon-384x384.png",
+        "/mangatracker/assets/icons/icon-512x512.png",
+        "/mangatracker/assets/icons/icon-72x72.png",
+        "/mangatracker/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/mangatracker/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/mangatracker/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/mangatracker/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/mangatracker/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/mangatracker/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/mangatracker/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/mangatracker/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/mangatracker/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/mangatracker/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/mangatracker/index.html": "4ef5fe32461f150a6137f224b414c143ccd92049",
+    "/mangatracker/main.f7c7761f514fdcf1.js": "e8522a76f4793c99c690df23c7537c90e3c0e699",
+    "/mangatracker/manifest.webmanifest": "9c7f724e6bb4196939826f1a3cd52b95ea959a7d",
+    "/mangatracker/polyfills.50a6546cc107d1e4.js": "4ba773f39466973651eba045c6a4b219d7528a0d",
+    "/mangatracker/runtime.99fbb0d76d87122b.js": "45a9b56b4c51242d1995386ee3158429afa528e5",
+    "/mangatracker/styles.dab3a5f2260a7f6c.css": "dde9f25c4b04d830bec2864369a0f3a8260d009c"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
