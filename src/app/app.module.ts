@@ -10,6 +10,7 @@ import { MaterialUiModule } from 'src/modules/material-ui.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { UpdateService } from 'src/services/update.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
     })
   ],
   providers: [
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}},
+    UpdateService
   ],
   bootstrap: [AppComponent]
 })
