@@ -25,13 +25,14 @@ export class UpdateService {
         this.swUpdate.activateUpdate().then(() => document.location.reload());
       }
     });
-
-    this.checkForUpdatesInterval();
   }
   
   checkForUpdates(): void {
     console.log("Checking for updates.");
-    this.swUpdate.checkForUpdate().then(() => console.log("Finished checking for updates."));
+    this.swUpdate.checkForUpdate().then(() => {
+      console.log("Finished checking for updates.");
+      this.checkForUpdatesInterval();
+    });
   }
   
   checkForUpdatesInterval(): void {
@@ -40,8 +41,8 @@ export class UpdateService {
         // const timeInterval = interval(UPDATE_INTERAL_HOURS * 60 * 60 * 1000);
         const timeInterval = interval(10000);
         
-        timeInterval.subscribe(() => {
-          console.log("Checking for updates (Interval).");
+        timeInterval.subscribe((n) => {
+          console.log(`Checking for updates (Interval: ${n}).`);
           this.swUpdate.checkForUpdate().then(() => console.log("Finished checking for updates (Interval)."));;
         });
       }
