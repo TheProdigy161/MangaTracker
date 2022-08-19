@@ -2,8 +2,6 @@ import { ApplicationRef, Injectable } from '@angular/core';
 import { SwUpdate, VersionReadyEvent } from '@angular/service-worker';
 import { filter, interval, map } from 'rxjs';
 
-const UPDATE_INTERAL_HOURS: number = 1;
-
 @Injectable({
   providedIn: 'root'
 })
@@ -31,21 +29,6 @@ export class UpdateService {
     console.log("Checking for updates.");
     this.swUpdate.checkForUpdate().then(() => {
       console.log("Finished checking for updates.");
-      this.checkForUpdatesInterval();
-    });
-  }
-  
-  checkForUpdatesInterval(): void {
-    this.appRef.isStable.subscribe((isStable: boolean) => {
-      if (isStable) {
-        // const timeInterval = interval(UPDATE_INTERAL_HOURS * 60 * 60 * 1000);
-        const timeInterval = interval(10000);
-        
-        timeInterval.subscribe((n) => {
-          console.log(`Checking for updates (Interval: ${n}).`);
-          this.swUpdate.checkForUpdate().then(() => console.log("Finished checking for updates (Interval)."));;
-        });
-      }
     });
   }
 }

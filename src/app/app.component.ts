@@ -16,5 +16,14 @@ export class AppComponent implements AfterViewInit {
     setTimeout(() => { // check for updates after 5 seconds
       this.updateService.checkForUpdates();
     }, 5000);
+
+    this.runUpdatesCheck();
+  }
+
+  runUpdatesCheck(): void {
+    setTimeout(() => {
+      this.updateService.checkForUpdates();
+      this.runUpdatesCheck();
+    }, 60000);
   }
 }
