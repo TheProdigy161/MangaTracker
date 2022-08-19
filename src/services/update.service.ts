@@ -9,6 +9,8 @@ const UPDATE_INTERAL_HOURS: number = 1;
 })
 export class UpdateService {
   constructor(private swUpdate: SwUpdate, private appRef: ApplicationRef) {
+    console.log("Constructing UpdateService.");
+
     const updatesAvailable = swUpdate.versionUpdates.pipe(
       filter((evt): evt is VersionReadyEvent => evt.type === 'VERSION_READY'),
       map(evt => ({
@@ -24,20 +26,23 @@ export class UpdateService {
       }
     });
 
-    // this.checkForUpdatesInterval();
+    this.checkForUpdatesInterval();
   }
   
   checkForUpdates(): void {
-    this.swUpdate.checkForUpdate();
+    console.log("Checking for updates.");
+    this.swUpdate.checkForUpdate().then(() => console.log("Finished checking for updates."));
   }
   
   checkForUpdatesInterval(): void {
     this.appRef.isStable.subscribe((isStable: boolean) => {
       if (isStable) {
-        const timeInterval = interval(UPDATE_INTERAL_HOURS * 60 * 60 * 1000);
-
+        // const timeInterval = interval(UPDATE_INTERAL_HOURS * 60 * 60 * 1000);
+        const timeInterval = interval(10000);
+        
         timeInterval.subscribe(() => {
-          this.swUpdate.checkForUpdate();
+          console.log("Checking for updates (Interval).");
+          this.swUpdate.checkForUpdate().then(() => console.log("Finished checking for updates (Interval)."));;
         });
       }
     });

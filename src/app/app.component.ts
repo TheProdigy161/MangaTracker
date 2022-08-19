@@ -13,8 +13,8 @@ export class AppComponent implements AfterViewInit {
   }
   
   ngAfterViewInit(): void {
-    setTimeout(() => { // check for updates after 10 seconds
+    setTimeout(() => { // check for updates after 5 seconds
       this.updateService.checkForUpdates();
-    }, 2000);
+    }, 5000);
   }
 }
