@@ -16,14 +16,15 @@ export class UpdateService {
         current: evt.currentVersion,
         available: evt.latestVersion,
       })));
-      
+
     updatesAvailable.subscribe(event => {
+      console.log(`Event: ${event}`);
       if (window.confirm(`A new update is available. Would you like to load the latest version?`)) {
-        swUpdate.activateUpdate().then(() => document.location.reload());
+        this.swUpdate.activateUpdate().then(() => document.location.reload());
       }
     });
 
-    this.checkForUpdatesInterval();
+    // this.checkForUpdatesInterval();
   }
   
   checkForUpdates(): void {
