@@ -22,9 +22,15 @@ export class UpdateService {
         swUpdate.activateUpdate().then(() => document.location.reload());
       }
     });
-  }
 
-  checkForUpdates() {
+    this.checkForUpdatesInterval();
+  }
+  
+  checkForUpdates(): void {
+    this.swUpdate.checkForUpdate();
+  }
+  
+  checkForUpdatesInterval(): void {
     this.appRef.isStable.subscribe((isStable: boolean) => {
       if (isStable) {
         const timeInterval = interval(UPDATE_INTERAL_HOURS * 60 * 60 * 1000);
