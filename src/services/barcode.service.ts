@@ -6,7 +6,13 @@ const BARCODES_STORAGE = "MANGA_TRACKER_BARCODES";
     providedIn: 'root'
 })
 export class BarcodeService {
-    private static _barcodes: string[] = ["Test"];
+    private static _barcodes: string[] = [
+        "Test1",
+        "Test2",
+        "Test3",
+        "Test4",
+        "Test5"
+    ];
     barcodes: EventEmitter<string[]> = new EventEmitter<string[]>();
 
     setupBarcodes(): void {  

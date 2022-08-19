@@ -1,13 +1,20 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
+import { UpdateService } from 'src/services/update.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'portal';
 
-  constructor() {
+  constructor(private updateService: UpdateService) {
+  }
+  
+  ngAfterViewInit(): void {
+    setTimeout(() => { // check for updates after 10 seconds
+      this.updateService.checkForUpdates();
+    }, 5000);
   }
 }
