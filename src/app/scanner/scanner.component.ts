@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import Quagga from '@ericblade/quagga2';
@@ -9,7 +9,7 @@ import { BarcodeService } from 'src/services/barcode.service';
   templateUrl: './scanner.component.html',
   styleUrls: ['./scanner.component.scss']
 })
-export class ScannerComponent implements AfterViewInit {
+export class ScannerComponent implements AfterViewInit, OnDestroy {
   barcodeDetected: boolean = false;
 
   constructor(private router: Router, private barcodeService: BarcodeService, private snack: MatSnackBar) { }
@@ -49,6 +49,10 @@ export class ScannerComponent implements AfterViewInit {
       });
   }
 
+  ngOnDestroy(): void {
+    Quagga.stop();
+  }
+
   onBarcodeScanned(code: string | null): void {
     if (code) {
       this.barcodeDetected = true;
@@ -56,5 +60,5 @@ export class ScannerComponent implements AfterViewInit {
       this.barcodeService.addBarcode(code);
       this.router.navigateByUrl('');
     }
-  } 
+  }
 }
