@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1661465124604,
+  "timestamp": 1661465821368,
   "index": "/MangaTracker/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/MangaTracker/favicon.ico",
         "/MangaTracker/index.html",
-        "/MangaTracker/main.2e55b231313b198e.js",
+        "/MangaTracker/main.903a05dc473da26b.js",
         "/MangaTracker/manifest.webmanifest",
         "/MangaTracker/polyfills.50a6546cc107d1e4.js",
         "/MangaTracker/runtime.99fbb0d76d87122b.js",
@@ -52,8 +52,8 @@
     "/MangaTracker/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/MangaTracker/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/MangaTracker/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/MangaTracker/index.html": "9a8762a2f2719022fceac8188aae2dbbb8a9b9ff",
-    "/MangaTracker/main.2e55b231313b198e.js": "3b353d6d0299afce18d38539d5e89b259baf4bbb",
+    "/MangaTracker/index.html": "d7b4fa32d973113b7a2ae5ee0ea0a8ed2178b3ad",
+    "/MangaTracker/main.903a05dc473da26b.js": "e7dd886117ec5a48a64ad4528fa2a366ac0d02d2",
     "/MangaTracker/manifest.webmanifest": "9c7f724e6bb4196939826f1a3cd52b95ea959a7d",
     "/MangaTracker/polyfills.50a6546cc107d1e4.js": "4ba773f39466973651eba045c6a4b219d7528a0d",
     "/MangaTracker/runtime.99fbb0d76d87122b.js": "45a9b56b4c51242d1995386ee3158429afa528e5",
