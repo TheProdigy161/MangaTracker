@@ -1,12 +1,17 @@
 import { ApplicationRef, Injectable } from '@angular/core';
 import { SwUpdate, VersionReadyEvent } from '@angular/service-worker';
-import { filter, interval, map } from 'rxjs';
+import { filter, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UpdateService {
   constructor(private swUpdate: SwUpdate, private appRef: ApplicationRef) {
+    if (!this.swUpdate.isEnabled) {
+      console.warn("SwUpdate is not enabled.");
+      return;
+    }
+
     console.log("Constructing UpdateService.");
 
     const updatesAvailable = swUpdate.versionUpdates.pipe(
@@ -24,8 +29,11 @@ export class UpdateService {
       }
     });
   }
-  
+
   checkForUpdates(): void {
+    if (!this.swUpdate.isEnabled)
+      return;
+
     console.log("Checking for updates.");
     this.swUpdate.checkForUpdate().then(() => {
       console.log("Finished checking for updates.");

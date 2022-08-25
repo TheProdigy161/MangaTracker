@@ -11,16 +11,16 @@ export class AppComponent implements AfterViewInit {
 
   constructor(private updateService: UpdateService) {
   }
-  
-  ngAfterViewInit(): void {
-    setTimeout(() => { // check for updates after 5 seconds
-      this.updateService.checkForUpdates();
-    }, 5000);
 
+  ngAfterViewInit(): void {
     this.runUpdatesCheck();
   }
 
   runUpdatesCheck(): void {
+    setTimeout(() => { // check for updates after 5 seconds
+      this.updateService.checkForUpdates();
+    }, 5000);
+
     setTimeout(() => {
       this.updateService.checkForUpdates();
       this.runUpdatesCheck();
