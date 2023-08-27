@@ -8,8 +8,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   imports: [],
   exports: [
     MatListModule,
-    MatSnackBarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialUiModule { }
